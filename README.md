@@ -62,4 +62,14 @@ _You can use this and other indicators to confirm likeliness of a direction chan
 Tends to work well on virtually all timeframes, but personally prefer to use it on 5min,15min,1hr, 4hr, daily, weekly. Will still work for shorter/other timeframes, but may be more accurate on mid ones.
 
 --- 
+
+## Future Dev Notes & Ideas
+- [ ] Add vector candles (ref: Traders Reality)
+- [ ] Volume Tracking (with shift clickable candle info)
+- [ ] Possible to add easy to read RSI, (or?) Stochastic RSI
+- [ ] Buy/Sell triggers based on (user inputable) probability that either 1st or 2nd indicator is correct in its prediction
+- [ ] Consider how to implement probability algorithm for when a candle crosses over a trend line in either direction
+
+---
+
 [This Repo is licensed under an MIT LICENSE](./LICENSE)
