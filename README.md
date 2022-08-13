@@ -57,6 +57,9 @@ Also works for traditional markets & commodities etc in the same way / using the
 
 ---
 
-You can use this and other indicators to confirm likeliness of a direction change prior to the brighter/confirmation one appearing - but just going by the 2nd(brighter) indicators, I have found it to be surprisingly accurate.
+_You can use this and other indicators to confirm likeliness of a direction change prior to the brighter/confirmation one appearing - but just going by the 2nd(brighter) indicators, I have found it to be surprisingly accurate._
 
 Tends to work well on virtually all timeframes, but personally prefer to use it on 5min,15min,1hr, 4hr, daily, weekly. Will still work for shorter/other timeframes, but may be more accurate on mid ones.
+
+--- 
+[This Repo is licensed under an MIT LICENSE](./LICENSE)
