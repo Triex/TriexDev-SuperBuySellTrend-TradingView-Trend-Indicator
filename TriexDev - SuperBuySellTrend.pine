@@ -1,5 +1,18 @@
 //@version=5
 indicator('TriexDev - SuperBuySellTrend', overlay=true, format=format.price, precision=2, timeframe='')
+// The average true range (ATR) is a technical analysis indicator, which
+// measures market volatility by decomposing the entire range of an 
+// asset price for that period.
+
+// The true range indicator is taken as the greatest of the following: 
+// current high - the current low; 
+// the absolute value of the current high - the previous close; 
+// and the absolute value of the current low - the previous close. 
+
+// The ATR is then a moving average, generally using 10/14 days, of the
+// true ranges.
+
+// Set up ATR, Multipliers & Timeframe/Periods
 Periods = input(title='ATR Period', defval=10)
 src = input(hl2, title='Source')
 Multiplier1 = input.float(title='ATR Multiplier 1', step=0.1, defval=0.8)
@@ -9,6 +22,7 @@ showsignals = input(title='Show Buy/Sell Signals ?', defval=true)
 highlighting = input(title='Highlighter On/Off ?', defval=true)
 atr2 = ta.sma(ta.tr, Periods)
 atr = changeATR ? ta.atr(Periods) : atr2
+// Set up the initial direction buy/sell signals
 up = src - Multiplier1 * atr
 up1 = nz(up[1], up)
 up := close[1] > up1 ? math.max(up, up1) : up
@@ -35,6 +49,7 @@ alertcondition(buySignal, title='SBST Buy', message='SBST Buy!')
 alertcondition(sellSignal, title='SBST Sell', message='SBST Sell!')
 changeCond = trend != trend[1]
 alertcondition(changeCond, title='SBST Direction Change', message='SBST has changed direction!')
+// Set up the confirmation buy/sell signals
 upx = src - Multiplier2 * atr
 upx1 = nz(upx[1], upx)
 upx := close[1] > upx1 ? math.max(upx, upx1) : upx
@@ -61,3 +76,4 @@ alertcondition(buySignalx, title='SBST Buy Confirm', message='SBST Buy Direction
 alertcondition(sellSignalx, title='SBST Sell Confirm', message='SBST Sell Direction Confirmed!')
 changeCondx = trendx != trendx[1]
 alertcondition(changeCondx, title='SBST Direction Confirmation', message='SBST has confirmed direction!')
+
