@@ -64,6 +64,7 @@ Tends to work well on virtually all timeframes, but personally prefer to use it 
 --- 
 
 ## Future Dev Notes & Ideas
+- [ ] On/Off toggles for all parts/indicators + toggle for "simple mode" (only base buy/sells and trend lines)
 - [ ] Add vector candles (ref: Traders Reality)
 - [ ] Volume Tracking (with shift clickable candle info)
 - [ ] Possible to add easy to read RSI, (or?) Stochastic RSI
