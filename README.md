@@ -13,7 +13,20 @@ The true range indicator is taken as the greatest of the following:
 The ATR is then a moving average, generally using 10/14 days, of the true ranges.
 
 ## What does this indicator do?
-Uses the ATR and multipliers to predict ranges and trend direction.
+Uses the ATR and multipliers to predict price volatility, ranges and trend direction.
+
+```
+The buy and sell signals are generated when the indicator starts plotting either on top of the closing price or below the closing price. A buy signal is generated when the ‘Supertrend’ closes above the price and a sell signal is generated when it closes below the closing price.
+
+It also suggests that the trend is shifting from descending mode to ascending mode. Contrary to this, when a ‘Supertrend’ closes above the price, it generates a sell signal as the colour of the indicator changes into red.
+
+A ‘Supertrend’ indicator can be used on equities, futures or forex, or even crypto markets and also on daily, weekly and hourly charts as well, but generally, it will be less effective in a sideways-moving market.
+```
+_[Thanks to KivancOzbilgic who made the original SuperTrend Indicator this was based off](https://www.tradingview.com/u/KivancOzbilgic/)_
+
+---
+
+## Usage Notes
 
 Minimal but powerful.
 
