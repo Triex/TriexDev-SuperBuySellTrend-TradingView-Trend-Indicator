@@ -13,7 +13,7 @@ The true range indicator is taken as the greatest of the following:
 The ATR is then a moving average, generally using 10/14 days, of the true ranges.
 
 ## What does this indicator do?
-Uses the ATR and multipliers to predict price volatility, ranges and trend direction.
+Uses the ATR and multipliers to help you predict price volatility, ranges and trend direction.
 
 >The buy and sell signals are generated when the indicator starts 
 plotting either on top of the closing price or below the closing price. A buy signal is generated when the ‘Supertrend’ closes above the price and a sell signal is generated when it closes below the closing price.
