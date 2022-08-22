@@ -160,3 +160,10 @@ candleColor = isBull ? iff_6 : iff_8
 barcolor(candleColor)
 
 alertcondition(va > 0, title='Alert on Vector Candle', message='{{ticker}} Vector Candle on the {{interval}}')
+
+// Up/Down Volume Analysis to be added if possible to make it tidy, currently only shift-click volume for bars and ranges
+
+var cumVol = 0.
+cumVol += nz(volume)
+if barstate.islast and cumVol == 0
+    runtime.error("The data vendor doesn't provide volume data for this symbol.")
