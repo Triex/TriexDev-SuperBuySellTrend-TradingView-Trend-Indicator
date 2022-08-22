@@ -1,0 +1,183 @@
+
+//@version=5
+indicator('TriexDev - SuperBuySellTrend (PLUS+)', overlay=true, format=format.price, precision=2, timeframe='')
+// The average true range (ATR) is a technical analysis indicator, which
+// measures market volatility by decomposing the entire range of an 
+// asset price for that period.
+
+// The true range indicator is taken as the greatest of the following: 
+// current high - the current low; 
+// the absolute value of the current high - the previous close; 
+// and the absolute value of the current low - the previous close. 
+
+// The ATR is then a moving average, generally using 10/14 days, of the
+// true ranges.
+
+// Set up ATR, Multipliers & Timeframe/Periods
+// Config
+Periods = input(title='ATR Period', defval=10)
+src = input(hl2, title='Source')
+Multiplier1 = input.float(title='ATR Multiplier 1', step=0.1, defval=0.8)
+Multiplier2 = input.float(title='ATR Multiplier 2', step=0.1, defval=1.6)
+changeATR = input(title='Change ATR Calculation Method ?', defval=true)
+showsignals = input(title='Show Buy/Sell Signals ?', defval=true)
+highlighting = input(title='Highlighter On/Off ?', defval=true)
+vectorcandleson = input(title='Vector Candles On/Off ? - toggle not working', defval=false)
+atr2 = ta.sma(ta.tr, Periods)
+atr = changeATR ? ta.atr(Periods) : atr2
+// Set up the initial direction buy/sell signals
+up = src - Multiplier1 * atr
+up1 = nz(up[1], up)
+up := close[1] > up1 ? math.max(up, up1) : up
+dn = src + Multiplier1 * atr
+dn1 = nz(dn[1], dn)
+dn := close[1] < dn1 ? math.min(dn, dn1) : dn
+trend = 1
+trend := nz(trend[1], trend)
+trend := trend == -1 and close > dn1 ? 1 : trend == 1 and close < up1 ? -1 : trend
+upPlot = plot(trend == 1 ? up : na, title='Up Trend', style=plot.style_linebr, linewidth=2, color=color.new(color.green, 0))
+buySignal = trend == 1 and trend[1] == -1
+plotshape(buySignal ? up : na, title='UpTrend Begins', location=location.absolute, style=shape.circle, size=size.tiny, color=color.new(color.green, 0))
+plotshape(buySignal and showsignals ? up : na, title='Buy', text='Buy', location=location.absolute, style=shape.labelup, size=size.tiny, color=color.new(color.green, 0), textcolor=color.new(color.white, 0))
+dnPlot = plot(trend == 1 ? na : dn, title='Down Trend', style=plot.style_linebr, linewidth=2, color=color.new(color.red, 0))
+sellSignal = trend == -1 and trend[1] == 1
+plotshape(sellSignal ? dn : na, title='DownTrend Begins', location=location.absolute, style=shape.circle, size=size.tiny, color=color.new(color.red, 0))
+plotshape(sellSignal and showsignals ? dn : na, title='Sell', text='Sell', location=location.absolute, style=shape.labeldown, size=size.tiny, color=color.new(color.red, 0), textcolor=color.new(color.white, 0))
+mPlot = plot(ohlc4, title='', style=plot.style_circles, linewidth=0)
+longFillColor = highlighting ? trend == 1 ? color.green : color.white : color.white
+shortFillColor = highlighting ? trend == -1 ? color.red : color.white : color.white
+fill(mPlot, upPlot, title='UpTrend Highlighter', color=longFillColor, transp=90)
+fill(mPlot, dnPlot, title='DownTrend Highlighter', color=shortFillColor, transp=90)
+alertcondition(buySignal, title='SBST Buy', message='SBST Buy!')
+alertcondition(sellSignal, title='SBST Sell', message='SBST Sell!')
+changeCond = trend != trend[1]
+alertcondition(changeCond, title='SBST Direction Change', message='SBST has changed direction!')
+// Set up the confirmation buy/sell signals
+upx = src - Multiplier2 * atr
+upx1 = nz(upx[1], upx)
+upx := close[1] > upx1 ? math.max(upx, upx1) : upx
+dnx = src + Multiplier2 * atr
+dnx1 = nz(dnx[1], dnx)
+dnx := close[1] < dnx1 ? math.min(dnx, dnx1) : dnx
+trendx = 1
+trendx := nz(trendx[1], trendx)
+trendx := trendx == -1 and close > dnx1 ? 1 : trendx == 1 and close < upx1 ? -1 : trendx
+upxPlot = plot(trendx == 1 ? upx : na, title='Up Trend', style=plot.style_linebr, linewidth=2, color=color.rgb(0, 255, 0))
+buySignalx = trendx == 1 and trendx[1] == -1
+plotshape(buySignalx ? upx : na, title='UpTrend Confirmed', location=location.absolute, style=shape.circle, size=size.tiny, color=color.rgb(0, 255, 0), transp=0)
+plotshape(buySignalx and showsignals ? upx : na, title='Buy', text='Buy', location=location.absolute, style=shape.labelup, size=size.tiny, color=color.rgb(0, 255, 0), textcolor=color.new(color.black, 0), transp=0)
+dnxPlot = plot(trendx == 1 ? na : dnx, title='Down Trend', style=plot.style_linebr, linewidth=2, color=color.rgb(255, 0, 0))
+sellSignalx = trendx == -1 and trendx[1] == 1
+plotshape(sellSignalx ? dnx : na, title='DownTrend Confirmed', location=location.absolute, style=shape.circle, size=size.tiny, color=color.rgb(255, 0, 0), transp=0)
+plotshape(sellSignalx and showsignals ? dnx : na, title='Sell', text='Sell', location=location.absolute, style=shape.labeldown, size=size.tiny, color=color.rgb(255, 0, 0), textcolor=color.new(color.white, 0), transp=0)
+mxPlot = plot(ohlc4, title='', style=plot.style_circles, linewidth=0)
+longFillColorx = highlighting ? trendx == 1 ? color.green : color.white : color.white
+shortFillColorx = highlighting ? trendx == -1 ? color.red : color.white : color.white
+fill(mxPlot, upxPlot, title='UpTrend Highlighter', color=longFillColorx, transp=90)
+fill(mxPlot, dnxPlot, title='DownTrend Highlighter', color=shortFillColorx, transp=90)
+alertcondition(buySignalx, title='SBST Buy Confirm', message='SBST Buy Direction Confirmed!')
+alertcondition(sellSignalx, title='SBST Sell Confirm', message='SBST Sell Direction Confirmed!')
+changeCondx = trendx != trendx[1]
+alertcondition(changeCondx, title='SBST Direction Confirmation', message='SBST has confirmed direction!')
+
+// Vector candles inspired from TradersReality
+// https://www.tradersrealty.com/blog/vector-candles-indicator-tradersrealty/
+// Price, Volume, Support, Resistance Analysis (PVSRA)
+// PVSRA helps determine if the Marker Makers are bearish or bullish, and if their price movement is in the "run for profits"  or "position building" phase.
+bool overridesym = input.bool(group='PVSRA', title='Override chart symbol?', defval=false, inline='pvsra')
+string pvsra_sym = input.symbol(group='PVSRA', title='', defval='INDEX:BTCUSD', tooltip='You can use INDEX:BTCUSD or you can combine multiple feeds, for example \'(BINANCE:BTCUSDT+COINBASE:BTCUSD)\'. Note that adding too many will slow things down.', inline='pvsra')
+
+// PVSRA
+// From MT4 source:
+
+//   Situation "Climax"
+//   Bars with volume >= 200% of the average volume of the 10 previous chart TFs, and bars
+//   where the product of candle spread x candle volume is >= the highest for the 10 previous
+//   chart time TFs.
+//   Default Colors:  Bull bars are green and bear bars are red.
+
+//   Situation "Volume Rising Above Average"
+//   Bars with volume >= 150% of the average volume of the 10 previous chart TFs.
+//   Default Colors:  Bull bars are blue and bear are blue-violet.
+
+// We want to be able to override where we get the volume data for the candles.
+pvsra_security(sresolution, sseries) =>
+    request.security(overridesym ? pvsra_sym : syminfo.tickerid, sresolution, sseries[barstate.isrealtime ? 1 : 0], barmerge.gaps_off, barmerge.lookahead_off)
+pvsra_security_1 = pvsra_security('', volume)
+pvsra_volume = overridesym == true ? pvsra_security_1 : volume
+pvsra_security_2 = pvsra_security('', high)
+pvsra_high = overridesym == true ? pvsra_security_2 : high
+pvsra_security_3 = pvsra_security('', low)
+pvsra_low = overridesym == true ? pvsra_security_3 : low
+pvsra_security_4 = pvsra_security('', close)
+pvsra_close = overridesym == true ? pvsra_security_4 : close
+pvsra_security_5 = pvsra_security('', open)
+pvsra_open = overridesym == true ? pvsra_security_5 : open
+
+//label.new(overridesym ? 0 : na, low, text = "PVSRA Override: " + pvsra_sym, xloc = xloc.bar_index, yloc=yloc.belowbar,style=label.style_label_down, size=size.huge)
+
+// The below math matches MT4 PVSRA indicator source
+// average volume from last 10 candles
+sum_1 = math.sum(pvsra_volume, 10)
+sum_2 = math.sum(volume, 10)
+av = overridesym == true ? sum_1 / 10 : sum_2 / 10
+//climax volume on the previous candle
+value2 = overridesym == true ? pvsra_volume * (pvsra_high - pvsra_low) : volume * (high - low)
+// highest climax volume of the last 10 candles
+hivalue2 = ta.highest(value2, 10)
+
+// VA value determines the bar color. va = 0: normal. va = 1: climax.  va = 2: rising
+iff_1 = pvsra_volume >= av * 1.5 ? 2 : 0
+iff_2 = pvsra_volume >= av * 2 or value2 >= hivalue2 ? 1 : iff_1
+iff_3 = volume >= av * 1.5 ? 2 : 0
+iff_4 = volume >= av * 2 or value2 >= hivalue2 ? 1 : iff_3
+va = overridesym == true ? iff_2 : iff_4
+
+// Bullish or bearish coloring
+isBull = overridesym == true ? pvsra_close > pvsra_open : close > open
+
+// CUColor = color.lime 
+CUColor = input.color(group='PVSRA', title='Climax Up Color', defval=color.lime, inline='pvsra') // Climax up (bull) bull and bear both start with b so it would be weird hence up down
+// alternate choice green or lime
+// CUColor = input.c
+CDColor = input.color(group='PVSRA', title='Climax Down Color', defval=color.red, inline='pvsra') // Climax down (bear)
+// default red
+
+AUColor = input.color(group='PVSRA', title='Volume Rising Above Average Up Color', defval=color.blue, inline='pvsra') // Volume rising above average up (bull)
+// default red
+ADColor = input.color(group='PVSRA', title='Volume Rising Above Average Down Color', defval=color.fuchsia, inline='pvsra') // Volume rising above average down (bear) blueviolet other colour to try
+// default green
+
+NUColor = #999999
+NDColor = #4d4d4d
+
+// candleColor = iff(climax,iff(isBull,CUColor,CDColor),iff(aboveA,iff(isBull,AUColor,ADColor),iff(isBull,NUColor,NDColor)))
+iff_5 = va == 2 ? AUColor : NUColor
+iff_6 = va == 1 ? CUColor : iff_5
+iff_7 = va == 2 ? ADColor : NDColor
+iff_8 = va == 1 ? CDColor : iff_7
+candleColor = isBull ? iff_6 : iff_8
+barcolor(candleColor)
+
+alertcondition(va > 0, title='Alert on Vector Candle', message='{{ticker}} Vector Candle on the {{interval}}')
+
+// Up/Down Volume Analysis to be added if possible to make it tidy, currently only shift-click volume for bars and ranges
+var cumVol = 0.
+cumVol += nz(volume)
+if barstate.islast and cumVol == 0
+    runtime.error("The data vendor doesn't provide volume data for this symbol.")
+
+// Bollinger Bands
+toggleBBon = input.bool(group='Bollinger Bands', title='Toggle Bollinger Bands', defval=false, inline='bb')
+lengthBB = input.int(20, minval=1, group="Bollinger Bands")
+srcBB = input(close, title="Source", group="Bollinger Bands")
+multBB = input.float(2.0, minval=0.001, maxval=50, title="StdDev", group="Bollinger Bands")
+basisBB = toggleBBon ? ta.sma(srcBB, lengthBB) : 0
+devBB = toggleBBon ? multBB * ta.stdev(srcBB, lengthBB) : 0
+upperBB = toggleBBon ? basisBB + devBB : 0
+lowerBB = toggleBBon ? basisBB - devBB : 0
+offsetBB = toggleBBon ? input.int(0, "Offset", minval = -500, maxval = 500, group="Bollinger Bands") : 0
+plot(basisBB, "Basis", color=#FF6D00, offset = offsetBB)
+p1 = plot(upperBB, "Upper", color=#2962FF, offset = offsetBB)
+p2 = plot(lowerBB, "Lower", color=#2962FF, offset = offsetBB)
+fill(p1, p2, title = "Background", color=color.rgb(33, 150, 243, 95))
