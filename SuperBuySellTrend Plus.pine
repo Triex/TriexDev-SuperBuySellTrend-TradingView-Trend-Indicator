@@ -22,7 +22,7 @@ Multiplier2 = input.float(title='ATR Multiplier 2', step=0.1, defval=1.6)
 changeATR = input(title='Change ATR Calculation Method ?', defval=true)
 showsignals = input(title='Show Buy/Sell Signals ?', defval=true)
 highlighting = input(title='Highlighter On/Off ?', defval=true)
-vectorcandleson = input(title='Vector Candles On/Off ?', defval=false)
+vectorcandleson = input(title='Vector Candles On/Off ? - toggle not working', defval=false)
 atr2 = ta.sma(ta.tr, Periods)
 atr = changeATR ? ta.atr(Periods) : atr2
 // Set up the initial direction buy/sell signals
