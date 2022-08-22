@@ -2,6 +2,14 @@
 
 [TradingView script link](https://www.tradingview.com/script/lz0rpQtQ-TriexDev-SuperBuySellTrend/)
 
+---
+### In Progress/Update Log
+- Started set up of SBST Plus
+  - Added vector candle (using PVSRA) inspired from TradersReality (adding an on/off toggle wasn't simple, so may need to make "plus" a new indicator of it's own rather then a small update - so that people can choose whether they want the extra features)
+- Experimenting with adding volume toggle/'shift click to see volume of a cande' functionality
+- Tried buy/sell volume tracking - but it's tough to make it look tidy unless having it appear at the $0 price (may work this way, but may be annoying for some low price/high cap tokens etc, would need to have an on/off toggle)
+---
+
 ## What is ATR?
 The average true range (ATR) is a technical analysis indicator, which measures market volatility by decomposing the entire range of an asset price for that period.
 
