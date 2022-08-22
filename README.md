@@ -72,7 +72,7 @@ Tends to work well on virtually all timeframes, but personally prefer to use it 
 --- 
 ---
 
-# [SBST Plus](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator/sbst-plus) 
+# [SBST Plus](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator/tree/master/sbst-plus) 
 _Using the "plus" version is optional, if you only want the buy/sell signals - use the "base" version._
 
 ## What are vector candles?
