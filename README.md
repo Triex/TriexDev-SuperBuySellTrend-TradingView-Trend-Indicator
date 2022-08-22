@@ -118,52 +118,6 @@ Buy volume is above 0 (positive), sell volume is below 0 (-negative) on the char
 
 It will show the Buy + Sell volume for each candle on the timeframe you are viewing.
 
-# [SBST Plus](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator/sbst-plus) 
-_Using the "plus" version is optional, if you only want the buy/sell signals - use the "base" version._
-
-## What are vector candles?
-Vector Candles (inspired to add from TradersReality/MT4) are candles that are color coded to indicate higher volumes, and likely flip points / direction changes, or confirmations.
-
-These are based off of PVSRA (Price, Volume, Support, Resistance Analysis)
-
-PVSRA - From MT4 source:
-
->- Situation "Climax"
->- Bars with volume >= 200% of the average volume of the 10 previous chart TFs, and bars
->- where the product of candle spread x candle volume is >= the highest for the 10 previous
->- chart time TFs.
->- Default Colors:  Bull bars are green and bear bars are red.  
-&nbsp;
->- Situation "Volume Rising Above Average"
->- Bars with volume >= 150% of the average volume of the 10 previous chart TFs.
->- Default Colors:  Bull bars are blue and bear are blue-violet.
-
-A blue or purple bar can mean the chart has reached a top or bottom. 
-High volume bars during a movement can indicate a big movement is coming - or a top/bottom if bulls/bears are unable to break that point - or the volume direction has flipped.
-
-This can also just be a healthy short term movement in the opposite direction - but at times sets obvious trend shifts.
-
-## Volume Tracking
-You can shift-click any candle to get the volume of that candle (in the pair token/stock), if you click and drag - you will see the volume for that range.
-
-## Bollinger Bands
-Bollinger Bands can be enabled in the settings via the toggle. 
-
-Bollinger Bands are designed to discover opportunities that give investors a higher probability of properly identifying when an asset is oversold (bottom lines) or overbought (top lines).
-
->There are three lines that compose Bollinger Bands: A simple moving average (middle band) and an upper and lower band.
-
->The upper and lower bands are typically 2 standard deviations +/- from a 20-day simple moving average, but they can be modified.
-
-## Up/Down Volume Analysis
-Quickly lets you check whether the market is buying or selling. 
-
-Volume Analysis can be enabled via a toggle in the settings, you can also change the colours & opacity of the bars.
-
-Buy volume is above 0 (positive), sell volume is below 0 (-negative) on the chart. 
-
-It will show the Buy + Sell volume for each candle on the timeframe you are viewing.
-
 ---
 
 ## Dev Notes & Future Ideas
