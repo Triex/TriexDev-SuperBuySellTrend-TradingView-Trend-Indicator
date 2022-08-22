@@ -3,13 +3,30 @@
 [TradingView script link](https://www.tradingview.com/script/lz0rpQtQ-TriexDev-SuperBuySellTrend/)
 
 ---
-### In Progress/Update Log
-- Started set up of SBST Plus
-  - Added vector candle (using PVSRA) inspired from TradersReality (adding an on/off toggle wasn't simple, so may need to make "plus" a new indicator of it's own rather then a small update - so that people can choose whether they want the extra features)
-- Experimenting with adding volume toggle/'shift click to see volume of a cande' functionality
-- Setting up buy/sell volume tracking - have made it appear across the chart with the volumes in the pair/stock/token showing on the chart directly
-  - The on/off toggle works via transparency - so still shows plotting lines if you click on the chart (is there a better way to do this?)
----
+
+# [SBST Plus](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator/sbst-plus)
+
+## What are vector candles?
+Vector Candles (inspired to add from TradersReality/MT4) are candles that are color coded to indicate higher volumes, and likely flip points / direction changes, or confirmations.
+
+These are based off of PVSRA (Price, Volume, Support, Resistance Analysis)
+
+PVSRA - From MT4 source:
+
+- Situation "Climax"
+- Bars with volume >= 200% of the average volume of the 10 previous chart TFs, and bars
+- where the product of candle spread x candle volume is >= the highest for the 10 previous
+- chart time TFs.
+- Default Colors:  Bull bars are green and bear bars are red.
+
+- Situation "Volume Rising Above Average"
+- Bars with volume >= 150% of the average volume of the 10 previous chart TFs.
+- Default Colors:  Bull bars are blue and bear are blue-violet.
+
+## Volume Tracking
+You can shift-click any candle to get the volume of that candle (in the pair token/stock), if you click and drag - you will see the volume for that range.
+
+# Base Indicator
 
 ## What is ATR?
 The average true range (ATR) is a technical analysis indicator, which measures market volatility by decomposing the entire range of an asset price for that period.
@@ -72,10 +89,13 @@ Tends to work well on virtually all timeframes, but personally prefer to use it 
 
 --- 
 
-## Future Dev Notes & Ideas
+## Dev Notes & Future Ideas
 - [ ] On/Off toggles for all parts/indicators + toggle for "simple mode" (only base buy/sells and trend lines)
-- [ ] Add vector candles (ref: Traders Reality)
-- [ ] Volume Tracking (with shift clickable candle info)
+- [X] Set up of SBST Plus
+  - [X] Added vector candles (using PVSRA) inspired from TradersReality/MT4 (Not simple to add an on/off toggle, so have created a "plus" indicator, that way people can choose whether or not they want the extra features)
+- [X] Added toggle/shift click volume functionality (click to see candle vol, drag to see range) 
+- [ ] Look further into buy/sell volume analysis/tracking - too messy when making it appear across the chart with the volumes in the pair/stock/token showing on the chart directly
+  - The on/off toggle works via transparency - so still shows plotting lines if you click on the chart (is there a better way to do this?)
 - [ ] Possible to add easy to read RSI, (or?) Stochastic RSI
 - [ ] Buy/Sell triggers based on (user inputable) probability that either 1st or 2nd indicator is correct in its prediction
 - [ ] Consider how to implement probability algorithm for when a candle crosses over a trend line in either direction

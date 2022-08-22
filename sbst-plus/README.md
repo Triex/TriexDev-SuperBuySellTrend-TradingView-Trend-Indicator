@@ -23,7 +23,10 @@ PVSRA - From MT4 source:
 - Bars with volume >= 150% of the average volume of the 10 previous chart TFs.
 - Default Colors:  Bull bars are blue and bear are blue-violet.
 
-# OG Indicator
+## Volume Tracking
+You can shift-click any candle to get the volume of that candle (in the pair token/stock), if you click and drag - you will see the volume for that range.
+
+# Base Indicator
 
 ## What is ATR?
 The average true range (ATR) is a technical analysis indicator, which measures market volatility by decomposing the entire range of an asset price for that period.
