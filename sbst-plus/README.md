@@ -1,6 +1,8 @@
 # TriexDev - SuperBuySellTrend (SBST) TradingView Trend Indicator
 
-[TradingView script link](https://www.tradingview.com/script/lz0rpQtQ-TriexDev-SuperBuySellTrend/)
+[Base Indicator TradingView script link](https://www.tradingview.com/script/lz0rpQtQ-TriexDev-SuperBuySellTrend/)
+
+// [SBST Plus TradingView script link](#)
 
 ---
 
