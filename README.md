@@ -29,6 +29,8 @@ PVSRA - From MT4 source:
 ## Volume Tracking
 You can shift-click any candle to get the volume of that candle (in the pair token/stock), if you click and drag - you will see the volume for that range.
 
+---
+
 # [Base Indicator](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator)
 
 ## What is ATR?
