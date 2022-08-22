@@ -10,7 +10,7 @@ Minimal but powerful.
 
 Have been using this for myself, so thought it would be nice to share publicly. Of course no script is correct 100% of the time, but this is one of if not the best in my basic tools.
 
-# [SBST Plus](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator/sbst-plus) 
+# [SBST Plus](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator/tree/master/sbst-plus) 
 _Using the "plus" version is optional, if you only want the buy/sell signals - use the "base" version._
 
 ## What are vector candles?
