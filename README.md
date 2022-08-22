@@ -47,6 +47,15 @@ Bollinger Bands are designed to discover opportunities that give investors a hig
 
 >The upper and lower bands are typically 2 standard deviations +/- from a 20-day simple moving average, but they can be modified.
 
+## Up/Down Volume Analysis
+Quickly lets you check whether the market is buying or selling. 
+
+Volume Analysis can be enabled via a toggle in the settings, you can also change the colours & opacity of the bars.
+
+Buy volume is above 0 (positive), sell volume is below 0 (-negative) on the chart. 
+
+It will show the Buy + Sell volume for each candle on the timeframe you are viewing.
+
 ---
 
 # [Base Indicator](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator)

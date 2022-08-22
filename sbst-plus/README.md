@@ -1,4 +1,4 @@
-# TriexDev - SuperBuySellTrend (SBST) PLUS+ TradingView Trend Indicator
+# TriexDev - SuperBuySellTrend PLUS (SBST+) TradingView Trend Indicator
 
 [Base Indicator - TradingView script link](https://www.tradingview.com/script/lz0rpQtQ-TriexDev-SuperBuySellTrend/)
 
@@ -46,6 +46,15 @@ Bollinger Bands are designed to discover opportunities that give investors a hig
 >There are three lines that compose Bollinger Bands: A simple moving average (middle band) and an upper and lower band.
 
 >The upper and lower bands are typically 2 standard deviations +/- from a 20-day simple moving average, but they can be modified.
+
+## Up/Down Volume Analysis
+Quickly lets you check whether the market is buying or selling. 
+
+Volume Analysis can be enabled via a toggle in the settings, you can also change the colours & opacity of the bars.
+
+Buy volume is above 0 (positive), sell volume is below 0 (-negative) on the chart. 
+
+It will show the Buy + Sell volume for each candle on the timeframe you are viewing.
 
 ---
 
