@@ -1,6 +1,6 @@
 
 //@version=5
-indicator('TriexDev - SuperBuySellTrend', overlay=true, format=format.price, precision=2, timeframe='')
+indicator('TriexDev - SuperBuySellTrend (PLUS+)', overlay=true, format=format.price, precision=2, timeframe='')
 // The average true range (ATR) is a technical analysis indicator, which
 // measures market volatility by decomposing the entire range of an 
 // asset price for that period.
