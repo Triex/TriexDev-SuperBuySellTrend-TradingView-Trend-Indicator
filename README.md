@@ -2,9 +2,13 @@
 
 [Base Indicator - TradingView script link](https://www.tradingview.com/script/lz0rpQtQ-TriexDev-SuperBuySellTrend/)
 
-<!-- [SBST Plus - TradingView script link](#) -->
+[SBST Plus - TradingView script link](https://www.tradingview.com/script/1zWTbNYl-TriexDev-SuperBuySellTrend-PLUS/)
 
 ---
+
+Minimal but powerful.
+
+Have been using this for myself, so thought it would be nice to share publicly. Of course no script is correct 100% of the time, but this is one of if not the best in my basic tools.
 
 # [SBST Plus](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator/sbst-plus) 
 _Using the "plus" version is optional, if you only want the buy/sell signals - use the "base" version._
@@ -72,10 +76,6 @@ _[Thanks to KivancOzbilgic who made the original SuperTrend Indicator this was b
 ---
 
 ## Usage Notes
-
-Minimal but powerful.
-
-Have been using this for myself, so thought it would be nice to share publicly. Of course no script is correct 100% of the time, but this is one of if not the best in my basic tools.
 
 Two indicators will appear, the default ATR multipliers are already set for what I believe to be perfect for this particular (double indicator) strategy.
 If you want to break it yourself (I couldn't find anything that tested more accurately myself), you can do so in the settings once you have added the indicator.
