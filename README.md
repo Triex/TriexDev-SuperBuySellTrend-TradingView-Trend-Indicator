@@ -1,4 +1,4 @@
-# TriexDev - SuperBuySellTrend (SBST) Plus TradingView Trend Indicator
+# TriexDev - SuperBuySellTrend (SBST) TradingView Trend Indicator
 
 [Base Indicator - TradingView script link](https://www.tradingview.com/script/lz0rpQtQ-TriexDev-SuperBuySellTrend/)
 
@@ -33,6 +33,15 @@ This can also just be a healthy short term movement in the opposite direction - 
 
 ## Volume Tracking
 You can shift-click any candle to get the volume of that candle (in the pair token/stock), if you click and drag - you will see the volume for that range.
+
+## Bollinger Bands
+Bollinger Bands can be enabled in the settings via the toggle. 
+
+Bollinger Bands are designed to discover opportunities that give investors a higher probability of properly identifying when an asset is oversold or overbought.
+
+>There are three lines that compose Bollinger Bands: A simple moving average (middle band) and an upper and lower band.
+
+>The upper and lower bands are typically 2 standard deviations +/- from a 20-day simple moving average, but they can be modified.
 
 ---
 
@@ -100,7 +109,7 @@ Tends to work well on virtually all timeframes, but personally prefer to use it 
 --- 
 
 ## Dev Notes & Future Ideas
-- [ ] On/Off toggles for all parts/indicators + toggle for "simple mode" (only base buy/sells and trend lines)
+- [X] Added Bollinger Bands (with on/off toggle - default state is off)
 - [X] Set up of SBST Plus
   - [X] Added vector candles (using PVSRA) inspired from TradersReality/MT4 (Not simple to add an on/off toggle, so have created a "plus" indicator, that way people can choose whether or not they want the extra features)
   - [X] Added toggle/shift click volume functionality (click to see candle vol, drag to see range) 
@@ -109,6 +118,7 @@ Tends to work well on virtually all timeframes, but personally prefer to use it 
 - [ ] Possible to add easy to read RSI, (or?) Stochastic RSI
 - [ ] Buy/Sell triggers based on (user inputable) probability that either 1st or 2nd indicator is correct in its prediction
 - [ ] Consider how to implement probability algorithm for when a candle crosses over a trend line in either direction
+- [ ] On/Off toggles for all parts/indicators + toggle for "simple mode" (only base buy/sells and trend lines)
 
 ---
 
