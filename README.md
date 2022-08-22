@@ -4,7 +4,8 @@
 
 ---
 
-# [SBST Plus](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator/sbst-plus)
+# [SBST Plus](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator/sbst-plus) 
+_Using the "plus" version is optional, if you only want the buy/sell signals - use the "base" version._
 
 ## What are vector candles?
 Vector Candles (inspired to add from TradersReality/MT4) are candles that are color coded to indicate higher volumes, and likely flip points / direction changes, or confirmations.
