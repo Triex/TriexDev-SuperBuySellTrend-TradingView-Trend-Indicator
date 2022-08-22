@@ -22,7 +22,7 @@ Multiplier2 = input.float(title='ATR Multiplier 2', step=0.1, defval=1.6)
 changeATR = input(title='Change ATR Calculation Method ?', defval=true)
 showsignals = input(title='Show Buy/Sell Signals ?', defval=true)
 highlighting = input(title='Highlighter On/Off ?', defval=true)
-vectorcandleson = input(title='Vector Candles On/Off ? - toggle not working', defval=false)
+// vectorcandleson = input(title='Vector Candles On/Off ? - toggle not working', defval=false)
 atr2 = ta.sma(ta.tr, Periods)
 atr = changeATR ? ta.atr(Periods) : atr2
 // Set up the initial direction buy/sell signals
@@ -161,12 +161,6 @@ barcolor(candleColor)
 
 alertcondition(va > 0, title='Alert on Vector Candle', message='{{ticker}} Vector Candle on the {{interval}}')
 
-// Up/Down Volume Analysis to be added if possible to make it tidy, currently only shift-click volume for bars and ranges
-var cumVol = 0.
-cumVol += nz(volume)
-if barstate.islast and cumVol == 0
-    runtime.error("The data vendor doesn't provide volume data for this symbol.")
-
 // Bollinger Bands
 toggleBBon = input.bool(group='Bollinger Bands', title='Toggle Bollinger Bands', defval=false, inline='bb')
 lengthBB = input.int(20, minval=1, group="Bollinger Bands")
@@ -181,3 +175,48 @@ plot(basisBB, "Basis", color=#FF6D00, offset = offsetBB)
 p1 = plot(upperBB, "Upper", color=#2962FF, offset = offsetBB)
 p2 = plot(lowerBB, "Lower", color=#2962FF, offset = offsetBB)
 fill(p1, p2, title = "Background", color=color.rgb(33, 150, 243, 95))
+
+// Up/Down Volume Analysis
+toggleVolumeOn = input.bool(group='Up/Down Volume Analysis', title='Up/Down Volume Analysis', defval=false, inline='updownvolon')
+
+lowerTimeframeTooltip = "The indicator scans lower timeframe data to approximate Up/Down volume. By default, the timeframe is chosen automatically. These inputs override this with a custom timeframe.
+ \n\nHigher timeframes provide more historical data, but the data will be less precise."
+useCustomTimeframeInput = input.bool(false, "Use custom timeframe", tooltip = lowerTimeframeTooltip)
+lowerTimeframeInput = input.timeframe("1", "Timeframe")
+
+upAndDownVolume() =>
+    posVol = 0.0
+    negVol = 0.0
+
+    switch
+        close >  open     => posVol += volume
+        close <  open     => negVol -= volume
+        close >= close[1] => posVol += volume
+        close <  close[1] => negVol -= volume
+
+    [posVol, negVol]
+
+lowerTimeframe = switch
+    useCustomTimeframeInput => lowerTimeframeInput
+    timeframe.isintraday    => "1"
+    timeframe.isdaily       => "5"
+    => "60"
+
+[upVolumeArray, downVolumeArray] = request.security_lower_tf(syminfo.tickerid, lowerTimeframe, upAndDownVolume())
+
+upVolume = toggleVolumeOn ? array.sum(upVolumeArray) : 0
+downVolume = toggleVolumeOn ? array.sum(downVolumeArray) : 0
+delta = toggleVolumeOn ? upVolume + downVolume : 0
+
+// colour inputs for up, down volumes
+upColor = input.color(group='Up/Down Volume Analysis', title='Up Volume Color', defval=color.new(color.green, 60), inline='updownvolon')
+downColor = input.color(group='Up/Down Volume Analysis', title='Down Volume Color', defval=color.new(color.red, 60), inline='updownvolon')
+
+plot(upVolume, "Up Volume", style = plot.style_columns, color=upColor)
+plot(downVolume, "Down Volume", style = plot.style_columns, color=downColor)
+plotchar(delta, "delta", "—", location.absolute, color = delta > 0 ? upColor : downColor, size = size.tiny)
+
+var cumVol = 0.
+cumVol += nz(volume)
+if barstate.islast and cumVol == 0
+    runtime.error("The data vendor doesn't provide volume data for this symbol.")
