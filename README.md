@@ -2,7 +2,7 @@
 
 [Base Indicator - TradingView script link](https://www.tradingview.com/script/lz0rpQtQ-TriexDev-SuperBuySellTrend/)
 
-[SBST Plus - TradingView script link](https://www.tradingview.com/script/1zWTbNYl-TriexDev-SuperBuySellTrend-PLUS/)
+[SBST Plus - TradingView script link](https://www.tradingview.com/script/VXDSx3cl-TriexDev-SuperBuySellTrend-PLUS/)
 
 ---
 
