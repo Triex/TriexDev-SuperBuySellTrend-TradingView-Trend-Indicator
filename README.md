@@ -41,7 +41,7 @@ You can shift-click any candle to get the volume of that candle (in the pair tok
 ## Bollinger Bands
 Bollinger Bands can be enabled in the settings via the toggle. 
 
-Bollinger Bands are designed to discover opportunities that give investors a higher probability of properly identifying when an asset is oversold or overbought.
+Bollinger Bands are designed to discover opportunities that give investors a higher probability of properly identifying when an asset is oversold (bottom lines) or overbought (top lines).
 
 >There are three lines that compose Bollinger Bands: A simple moving average (middle band) and an upper and lower band.
 
