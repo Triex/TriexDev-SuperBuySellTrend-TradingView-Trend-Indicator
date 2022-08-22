@@ -16,15 +16,20 @@ These are based off of PVSRA (Price, Volume, Support, Resistance Analysis)
 
 PVSRA - From MT4 source:
 
-- Situation "Climax"
-- Bars with volume >= 200% of the average volume of the 10 previous chart TFs, and bars
-- where the product of candle spread x candle volume is >= the highest for the 10 previous
-- chart time TFs.
-- Default Colors:  Bull bars are green and bear bars are red.  
+>- Situation "Climax"
+>- Bars with volume >= 200% of the average volume of the 10 previous chart TFs, and bars
+>- where the product of candle spread x candle volume is >= the highest for the 10 previous
+>- chart time TFs.
+>- Default Colors:  Bull bars are green and bear bars are red.  
 &nbsp;
-- Situation "Volume Rising Above Average"
-- Bars with volume >= 150% of the average volume of the 10 previous chart TFs.
-- Default Colors:  Bull bars are blue and bear are blue-violet.
+>- Situation "Volume Rising Above Average"
+>- Bars with volume >= 150% of the average volume of the 10 previous chart TFs.
+>- Default Colors:  Bull bars are blue and bear are blue-violet.
+
+A blue or purple bar can mean the chart has reached a top or bottom. 
+High volume bars during a movement can indicate a top/bottom if bulls/bears are unable to break that point - or the volume direction has flipped.
+
+This can also just be a healthy short term movement in the opposite direction - but at times sets obvious trend shifts.
 
 ## Volume Tracking
 You can shift-click any candle to get the volume of that candle (in the pair token/stock), if you click and drag - you will see the volume for that range.
