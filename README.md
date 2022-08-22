@@ -7,7 +7,8 @@
 - Started set up of SBST Plus
   - Added vector candle (using PVSRA) inspired from TradersReality (adding an on/off toggle wasn't simple, so may need to make "plus" a new indicator of it's own rather then a small update - so that people can choose whether they want the extra features)
 - Experimenting with adding volume toggle/'shift click to see volume of a cande' functionality
-- Tried buy/sell volume tracking - but it's tough to make it look tidy unless having it appear at the $0 price (may work this way, but may be annoying for some low price/high cap tokens etc, would need to have an on/off toggle)
+- Setting up buy/sell volume tracking - have made it appear across the chart with the volumes in the pair/stock/token showing on the chart directly
+  - The on/off toggle works via transparency - so still shows plotting lines if you click on the chart (is there a better way to do this?)
 ---
 
 ## What is ATR?
