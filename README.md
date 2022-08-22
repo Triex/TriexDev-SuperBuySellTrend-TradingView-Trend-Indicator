@@ -20,8 +20,8 @@ PVSRA - From MT4 source:
 - Bars with volume >= 200% of the average volume of the 10 previous chart TFs, and bars
 - where the product of candle spread x candle volume is >= the highest for the 10 previous
 - chart time TFs.
-- Default Colors:  Bull bars are green and bear bars are red.
-
+- Default Colors:  Bull bars are green and bear bars are red.  
+&nbsp;
 - Situation "Volume Rising Above Average"
 - Bars with volume >= 150% of the average volume of the 10 previous chart TFs.
 - Default Colors:  Bull bars are blue and bear are blue-violet.
