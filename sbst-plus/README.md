@@ -27,7 +27,7 @@ PVSRA - From MT4 source:
 >- Default Colors:  Bull bars are blue and bear are blue-violet.
 
 A blue or purple bar can mean the chart has reached a top or bottom. 
-High volume bars during a movement can indicate a top/bottom if bulls/bears are unable to break that point - or the volume direction has flipped.
+High volume bars during a movement can indicate a big movement is coming - or a top/bottom if bulls/bears are unable to break that point - or the volume direction has flipped.
 
 This can also just be a healthy short term movement in the opposite direction - but at times sets obvious trend shifts.
 
