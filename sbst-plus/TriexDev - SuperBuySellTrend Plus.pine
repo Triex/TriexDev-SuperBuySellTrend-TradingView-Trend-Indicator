@@ -81,7 +81,6 @@ changeCondx = trendx != trendx[1]
 alertcondition(changeCondx, title='SBST Direction Confirmation', message='SBST has confirmed direction!')
 
 // Vector candles inspired from TradersReality
-// https://www.tradersrealty.com/blog/vector-candles-indicator-tradersrealty/
 // Price, Volume, Support, Resistance Analysis (PVSRA)
 // PVSRA helps determine if the Marker Makers are bearish or bullish, and if their price movement is in the "run for profits"  or "position building" phase.
 bool overridesym = input.bool(group='PVSRA', title='Override chart symbol?', defval=false, inline='pvsra')
