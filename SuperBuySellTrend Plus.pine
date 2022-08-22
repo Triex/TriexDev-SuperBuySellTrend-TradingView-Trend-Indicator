@@ -84,3 +84,79 @@ alertcondition(changeCondx, title='SBST Direction Confirmation', message='SBST h
 // https://www.tradersrealty.com/blog/vector-candles-indicator-tradersrealty/
 // Price, Volume, Support, Resistance Analysis (PVSRA)
 // PVSRA helps determine if the Marker Makers are bearish or bullish, and if their price movement is in the "run for profits"  or "position building" phase.
+bool overridesym = input.bool(group='PVSRA', title='Override chart symbol?', defval=false, inline='pvsra')
+string pvsra_sym = input.symbol(group='PVSRA', title='', defval='INDEX:BTCUSD', tooltip='You can use INDEX:BTCUSD or you can combine multiple feeds, for example \'(BINANCE:BTCUSDT+COINBASE:BTCUSD)\'. Note that adding too many will slow things down.', inline='pvsra')
+
+// PVSRA
+// From MT4 source:
+
+//   Situation "Climax"
+//   Bars with volume >= 200% of the average volume of the 10 previous chart TFs, and bars
+//   where the product of candle spread x candle volume is >= the highest for the 10 previous
+//   chart time TFs.
+//   Default Colors:  Bull bars are green and bear bars are red.
+
+//   Situation "Volume Rising Above Average"
+//   Bars with volume >= 150% of the average volume of the 10 previous chart TFs.
+//   Default Colors:  Bull bars are blue and bear are blue-violet.
+
+// We want to be able to override where we get the volume data for the candles.
+pvsra_security(sresolution, sseries) =>
+    request.security(overridesym ? pvsra_sym : syminfo.tickerid, sresolution, sseries[barstate.isrealtime ? 1 : 0], barmerge.gaps_off, barmerge.lookahead_off)
+pvsra_security_1 = pvsra_security('', volume)
+pvsra_volume = overridesym == true ? pvsra_security_1 : volume
+pvsra_security_2 = pvsra_security('', high)
+pvsra_high = overridesym == true ? pvsra_security_2 : high
+pvsra_security_3 = pvsra_security('', low)
+pvsra_low = overridesym == true ? pvsra_security_3 : low
+pvsra_security_4 = pvsra_security('', close)
+pvsra_close = overridesym == true ? pvsra_security_4 : close
+pvsra_security_5 = pvsra_security('', open)
+pvsra_open = overridesym == true ? pvsra_security_5 : open
+
+//label.new(overridesym ? 0 : na, low, text = "PVSRA Override: " + pvsra_sym, xloc = xloc.bar_index, yloc=yloc.belowbar,style=label.style_label_down, size=size.huge)
+
+// The below math matches MT4 PVSRA indicator source
+// average volume from last 10 candles
+sum_1 = math.sum(pvsra_volume, 10)
+sum_2 = math.sum(volume, 10)
+av = overridesym == true ? sum_1 / 10 : sum_2 / 10
+//climax volume on the previous candle
+value2 = overridesym == true ? pvsra_volume * (pvsra_high - pvsra_low) : volume * (high - low)
+// highest climax volume of the last 10 candles
+hivalue2 = ta.highest(value2, 10)
+
+// VA value determines the bar color. va = 0: normal. va = 1: climax.  va = 2: rising
+iff_1 = pvsra_volume >= av * 1.5 ? 2 : 0
+iff_2 = pvsra_volume >= av * 2 or value2 >= hivalue2 ? 1 : iff_1
+iff_3 = volume >= av * 1.5 ? 2 : 0
+iff_4 = volume >= av * 2 or value2 >= hivalue2 ? 1 : iff_3
+va = overridesym == true ? iff_2 : iff_4
+
+// Bullish or bearish coloring
+isBull = overridesym == true ? pvsra_close > pvsra_open : close > open
+
+// CUColor = color.lime 
+CUColor = input.color(group='PVSRA', title='Climax Up Color', defval=color.lime, inline='pvsra') // Climax up (bull) bull and bear both start with b so it would be weird hence up down
+// alternate choice green or lime
+// CUColor = input.c
+CDColor = input.color(group='PVSRA', title='Climax Down Color', defval=color.red, inline='pvsra') // Climax down (bear)
+// default red
+
+AUColor = input.color(group='PVSRA', title='Volume Rising Above Average Up Color', defval=color.blue, inline='pvsra') // Volume rising above average up (bull)
+// default red
+ADColor = input.color(group='PVSRA', title='Volume Rising Above Average Down Color', defval=color.fuchsia, inline='pvsra') // Volume rising above average down (bear) blueviolet other colour to try
+// default green
+
+NUColor = #999999
+NDColor = #4d4d4d
+
+// candleColor = iff(climax,iff(isBull,CUColor,CDColor),iff(aboveA,iff(isBull,AUColor,ADColor),iff(isBull,NUColor,NDColor)))
+iff_5 = va == 2 ? AUColor : NUColor
+iff_6 = va == 1 ? CUColor : iff_5
+iff_7 = va == 2 ? ADColor : NDColor
+iff_8 = va == 1 ? CDColor : iff_7
+candleColor = isBull ? iff_6 : iff_8
+barcolor(candleColor)
+
+alertcondition(va > 0, title='Alert on Vector Candle', message='{{ticker}} Vector Candle on the {{interval}}')
