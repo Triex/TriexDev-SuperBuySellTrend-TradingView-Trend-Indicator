@@ -76,7 +76,7 @@ Tends to work well on virtually all timeframes, but personally prefer to use it 
 _Using the "plus" version is optional, if you only want the buy/sell signals - use the "base" version._
 
 [![Chart Snapshot](https://tradingview.com/x/4fzGlOqI)](https://tradingview.com/x/4fzGlOqI)
-_With all the "+" indicators turned on, it may look a little confusing at first glance - but if you switch them on/off you should be able to quickly work out what each one is / means._
+_With all the "+" indicators turned on, it may look a little confusing at first glance - but if you switch them on/off you should be able to quickly work out what each one is / means, as well as work out your preferences._
 
 ## What are vector candles?
 Vector Candles (inspired to add from TradersReality/MT4) are candles that are color coded to indicate higher volumes, and likely flip points / direction changes, or confirmations.
