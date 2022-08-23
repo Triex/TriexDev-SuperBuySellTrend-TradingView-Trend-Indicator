@@ -75,6 +75,9 @@ Tends to work well on virtually all timeframes, but personally prefer to use it 
 # [SBST Plus](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator/tree/master/sbst-plus) 
 _Using the "plus" version is optional, if you only want the buy/sell signals - use the "base" version._
 
+[![Chart Snapshot](https://tradingview.com/x/4fzGlOqI)](https://tradingview.com/x/4fzGlOqI)
+_With all the "+" indicators turned on, it may look a little confusing at first glance - but if you switch them on/off you should be able to quickly work out what each one is / means, as well as work out your preferences._
+
 ## What are vector candles?
 Vector Candles (inspired to add from TradersReality/MT4) are candles that are color coded to indicate higher volumes, and likely flip points / direction changes, or confirmations.
 
@@ -118,6 +121,15 @@ Buy volume is above 0 (positive), sell volume is below 0 (-negative) on the char
 
 It will show the Buy + Sell volume for each candle on the timeframe you are viewing.
 
+## MA 50, 200, 800
+Moving Averages help to work out the current trend / direction. (eg, often; above 200 = bullish, below 200 = bearish). I tend to watch the 50+200 day MA locations and crossovers as primary trendlines for general use. 
+
+## Psy Levels, Daily Hi/Lo & opens
+Psychological & daily levels help to confirm, or find pivot points. 
+
+I personally switch these off sometimes to reduce the amount of lines on the chart, but can be very useful.
+
+---
 ---
 
 ## Dev Notes & Future Ideas
