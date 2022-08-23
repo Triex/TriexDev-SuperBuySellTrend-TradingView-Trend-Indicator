@@ -56,6 +56,14 @@ Buy volume is above 0 (positive), sell volume is below 0 (-negative) on the char
 
 It will show the Buy + Sell volume for each candle on the timeframe you are viewing.
 
+## MA 50, 200, 800
+Moving Averages help to work out the current trend / direction. (eg, often; above 200 = bullish, below 200 = bearish). I tend to watch the 50+200 day MA's as primary trendlines for general use.
+
+## Psy Levels, Daily Hi/Lo & opens
+Psychological & daily levels help to confirm, or find pivot points. 
+
+I personally switch these off sometimes to reduce the amount of lines on the chart, but can be very useful.
+
 ---
 
 # [Base Indicator](https://github.com/Triex/TriexDev-SuperBuySellTrend-TradingView-Trend-Indicator)
