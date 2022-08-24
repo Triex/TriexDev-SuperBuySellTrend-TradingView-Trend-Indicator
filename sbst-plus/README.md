@@ -135,12 +135,10 @@ Tends to work well on virtually all timeframes, but personally prefer to use it 
 - [X] Set up of SBST Plus
   - [X] Added vector candles (using PVSRA) inspired from TradersReality/MT4 (Not simple to add an on/off toggle, so have created a "plus" indicator, that way people can choose whether or not they want the extra features)
   - [X] Added toggle/shift click volume functionality (click to see candle vol, drag to see range) 
-  - [ ] Look further into buy/sell volume analysis/tracking - too messy when making it appear across the chart with the volumes in the pair/stock/token showing on the chart directly
-    - The on/off toggle works via transparency - so still shows plotting lines if you click on the chart (is there a better way to do this?)
+  - [X] Toggle-able Buy/sell volume analysis
 - [ ] Possible to add easy to read RSI, (or?) Stochastic RSI
 - [ ] Buy/Sell triggers based on (user inputable) probability that either 1st or 2nd indicator is correct in its prediction
 - [ ] Consider how to implement probability algorithm for when a candle crosses over a trend line in either direction
-- [ ] On/Off toggles for all parts/indicators + toggle for "simple mode" (only base buy/sells and trend lines)
 
 ---
 
