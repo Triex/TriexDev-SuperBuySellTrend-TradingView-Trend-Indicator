@@ -131,11 +131,12 @@ Tends to work well on virtually all timeframes, but personally prefer to use it 
 ---
 
 ## Dev Notes & Future Ideas
-- [X] Added Bollinger Bands (with on/off toggle - default state is off)
+- [ ] Consider adding Bollinger Bands to base indicator
 - [X] Set up of SBST Plus
+  - [X] Toggle-able Bollinger Bands (default state is off)
   - [X] Added vector candles (using PVSRA) inspired from TradersReality/MT4 (Not simple to add an on/off toggle, so have created a "plus" indicator, that way people can choose whether or not they want the extra features)
   - [X] Added toggle/shift click volume functionality (click to see candle vol, drag to see range) 
-  - [X] Toggle-able Buy/sell volume analysis
+  - [X] Toggle-able Buy/sell volume analysis (default state is off)
   - [X] Toggle-able MA 50, 200, 800
   - [X] Toggle-able Psychological Levels, Daily/Weekly Hi/Lo & opens
 - [ ] Possible to add easy to read RSI, (or?) Stochastic RSI
