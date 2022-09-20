@@ -6,6 +6,10 @@
 
 ---
 
+Dig this indicator? Want to support me doing more free stuff? <a href="https://buymeacoffee.com/Triex">BuyMeACoffee</a>
+
+---
+
 Minimal but powerful.
 
 Have been using this for myself, so thought it would be nice to share publicly. Of course no script is correct 100% of the time, but this is one of if not the best in my basic tools.
