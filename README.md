@@ -8,7 +8,7 @@
 
 Dig this indicator? Want to support me doing more free stuff? <a href="https://buymeacoffee.com/Triex">BuyMeACoffee</a>
 
-I am creating a (likely) paid (automatic trading) `Strategy` using this while I optimise the free indicator. Rarly backtests give great results. 
+I am creating a (likely) paid (automatic trading) `Strategy` using this while I optimise the free indicator. Early backtests give great results. 
 Currently working on optimising the probability side - but this may take some time as I am mid other projects.
 
 ---
